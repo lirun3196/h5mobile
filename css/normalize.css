@@ -9,6 +9,7 @@
 html {
   font-family: sans-serif; /* 1 */
   -ms-text-size-adjust: 100%; /* 2 */
+    /*在最新版的谷歌里,已经不在支持这个属性*/
   -webkit-text-size-adjust: 100%; /* 2 */
 }
 
@@ -421,3 +422,6 @@ td,
 th {
   padding: 0;
 }
+
+/*dd*/
+dd{ margin-left: 0; }
