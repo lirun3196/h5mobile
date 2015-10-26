@@ -24,9 +24,13 @@
     content: "";
     display: table;
 }
-
 .clearfix:after {
     clear: both;
+}
+.text-ellipsis{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 html,
@@ -94,6 +98,14 @@ a{
 .pos-rel{ position: relative; }
 
 //组件
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: -1px;
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5;
+}
 .input-group{
     label{
         display: block;
@@ -187,24 +199,33 @@ a{
 
 /*个人中心*/
 .info-center{
-    dl{
-        &:extend(.clearfix all);
-        font-size: 0.9rem;
+    .info-list{
+        background-color: #fff;
+        a{
+            padding: 0.5rem 0;
+            &:extend(.clearfix all);
+        }
+        li+li{
+            border-top: 1px solid #e5e5e5;
+        }
     }
-    dt,dd{ line-height: 1.5rem; }
-    dt{
-        float: left;
-        width: auto;
-        margin-right: -100%;
+    .info-title,
+    .info-detail{
+        display: table-cell;
     }
-    dd{
-        float: left;
+    .info-detail{
+        float: right;
         width: 100%;
+        padding-left: 6rem;
         text-align: right;
+        &:extend(.text-ellipsis);
     }
     .fa{ font-size: 1.5rem; }
     .fa-shopping-cart{ color: #00b3da; }
     .fa-map-marker{ color: #3cc1a9; }
+    .fa-credit-card{ color: #eca700; }
+    .fa-phone-square{ color: #ff861a; }
+    .fa-sign-out{ color: #808080    ; }
 }
 
 

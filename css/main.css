@@ -19,14 +19,20 @@
  */
 .clearfix:before,
 .clearfix:after,
-.info-center dl:before,
-.info-center dl:after {
+.info-center .info-list a:before,
+.info-center .info-list a:after {
   content: "";
   display: table;
 }
 .clearfix:after,
-.info-center dl:after {
+.info-center .info-list a:after {
   clear: both;
+}
+.text-ellipsis,
+.info-center .info-detail {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 html,
 button,
@@ -89,6 +95,14 @@ a {
 }
 .pos-rel {
   position: relative;
+}
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: -1px;
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
 }
 .input-group label {
   display: block;
@@ -175,21 +189,23 @@ a {
   max-width: 11rem;
 }
 /*个人中心*/
-.info-center dl {
-  font-size: 0.9rem;
+.info-center .info-list {
+  background-color: #fff;
 }
-.info-center dt,
-.info-center dd {
-  line-height: 1.5rem;
+.info-center .info-list a {
+  padding: 0.5rem 0;
 }
-.info-center dt {
-  float: left;
-  width: auto;
-  margin-right: -100%;
+.info-center .info-list li + li {
+  border-top: 1px solid #e5e5e5;
 }
-.info-center dd {
-  float: left;
+.info-center .info-title,
+.info-center .info-detail {
+  display: table-cell;
+}
+.info-center .info-detail {
+  float: right;
   width: 100%;
+  padding-left: 6rem;
   text-align: right;
 }
 .info-center .fa {
@@ -200,6 +216,15 @@ a {
 }
 .info-center .fa-map-marker {
   color: #3cc1a9;
+}
+.info-center .fa-credit-card {
+  color: #eca700;
+}
+.info-center .fa-phone-square {
+  color: #ff861a;
+}
+.info-center .fa-sign-out {
+  color: #808080    ;
 }
 /* ==========================================================================
    Helper classes
