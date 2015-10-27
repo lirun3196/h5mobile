@@ -21,6 +21,8 @@
 .clearfix:after,
 .info-center .info-list a:before,
 .info-center .info-list a:after,
+.info-center .list-group-item:before,
+.info-center .list-group-item:after,
 .info-center .order-status:before,
 .info-center .order-status:after {
   content: "";
@@ -28,6 +30,7 @@
 }
 .clearfix:after,
 .info-center .info-list a:after,
+.info-center .list-group-item:after,
 .info-center .order-status:after {
   clear: both;
 }
@@ -48,6 +51,7 @@ html {
   font-size: 20px;
 }
 body {
+  font-family: "Helvetica Neue", Helvetica, "microsoft yahei", sans-serif;
   font-size: 0.7rem;
   background-color: #f4f4f4;
 }
@@ -59,6 +63,18 @@ body {
 }
 .mb15 {
   margin-bottom: 0.75rem;
+}
+.ml10 {
+  margin-left: 0.5rem;
+}
+.mr10 {
+  margin-right: 0.5rem;
+}
+.pr10 {
+  padding-right: 0.5rem;
+}
+.pr20 {
+  padding-right: 1rem;
 }
 /*
  * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
@@ -102,10 +118,15 @@ a {
 .list-group-item {
   position: relative;
   display: block;
-  padding: 0.75rem;
+  padding: 0.75rem 0.5rem;
   margin-bottom: -1px;
   background-color: #ffffff;
   border: 1px solid #e5e5e5;
+}
+.media-left,
+.media-right,
+.media-body {
+  display: table-cell;
 }
 .input-group label {
   display: block;
@@ -123,7 +144,6 @@ a {
 .form-control {
   display: block;
   width: 100%;
-  padding: 0.5rem 1.8rem;
   line-height: 1rem;
   color: #555;
   background-color: #fff;
@@ -135,7 +155,6 @@ a {
 }
 .form-control:focus {
   outline-width: 0;
-  border-color: #37b18a;
 }
 .clear-input {
   z-index: 10;
@@ -161,6 +180,12 @@ a {
   max-width: 20rem;
   margin: 0 auto;
   padding: 6% 0 8%;
+}
+.login .form-control {
+  padding: 0.5rem 1.8rem;
+}
+.login .form-control:focus {
+  border-color: #37b18a;
 }
 .btn-login {
   width: 100%;
@@ -193,7 +218,7 @@ a {
 }
 /*个人中心*/
 .info-center {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 .info-center .info-list {
   background-color: #fff;
@@ -214,23 +239,34 @@ a {
   padding-left: 6rem;
   text-align: right;
 }
-.info-center .fa {
-  margin: 0 0.5rem;
+.info-center .list-group-item .fa,
+.info-center .list-group-item .list-title {
+  float: left;
+}
+.info-center .list-group-item .list-value {
+  float: right;
+}
+.info-center .list-group-item .list-title,
+.info-center .list-group-item .list-value {
+  line-height: 30px;
+}
+.info-center .list-group-item .fa {
+  margin: 0 0.5rem 0 0;
   font-size: 1.5rem;
 }
-.info-center .fa-shopping-cart {
+.info-center .list-group-item .fa-shopping-cart {
   color: #00b3da;
 }
-.info-center .fa-map-marker {
+.info-center .list-group-item .fa-map-marker {
   color: #3cc1a9;
 }
-.info-center .fa-credit-card {
+.info-center .list-group-item .fa-credit-card {
   color: #eca700;
 }
-.info-center .fa-phone-square {
+.info-center .list-group-item .fa-phone-square {
   color: #ff861a;
 }
-.info-center .fa-sign-out {
+.info-center .list-group-item .fa-sign-out {
   color: #808080    ;
 }
 .info-center .order-status {
@@ -238,7 +274,7 @@ a {
   background-color: #fff;
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
-  color: #555;
+  color: #797979;
 }
 .info-center .order-status a {
   display: block;
@@ -250,9 +286,117 @@ a {
 .info-center .order-status a:focus {
   background-color: #52c9a3;
 }
+.info-center .order-status .fa {
+  font-size: 1.5rem;
+}
 .info-center .order-status .order-status-name {
   display: block;
   margin: 0.5rem 0 0;
+}
+.info-center .wealth {
+  width: 50%;
+  float: left;
+  padding: 0.75rem 0;
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+  background-color: #fff;
+}
+.info-center .wealth + .wealth {
+  border-left: 1px solid #e5e5e5;
+}
+.info-center .money-title,
+.info-center .point-title {
+  font-size: 0.9rem;
+  margin: 0 0.3rem 0 0;
+}
+.info-center .money-value,
+.info-center .point-value {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #37b18a;
+}
+.info-center header {
+  padding: 1rem 0.5rem;
+  background-color: #188c65;
+}
+.info-center .user-avatar {
+  max-width: 100px;
+  border-radius: 50%;
+  height: auto;
+  border: 3px solid #31a676;
+}
+.info-center .user-phone {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+.info-center .media-body {
+  color: #fff;
+}
+.info-center .media-left,
+.info-center .media-body {
+  vertical-align: middle;
+}
+.change-info .title {
+  position: relative;
+  margin: 0;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  background-color: #e9e9e9;
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.change-info .back-link {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin: -1rem 1rem 0;
+  font-size: 2rem;
+}
+.change-info .input-group {
+  background-color: #fff;
+  padding: 0 1rem;
+}
+.change-info .form-control {
+  padding: 0.6rem 0;
+  border: none;
+}
+.change-info .border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+.change-info .get-code {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -0.7rem;
+  background-color: #6ba5fe;
+  color: #fff;
+  border: 1px solid transparent;
+  padding: 0.3rem 0.4rem;
+  border-radius: 0.2rem;
+}
+.change-info .change-submit {
+  display: block;
+  width: 70%;
+  margin: 1.5rem auto 0;
+  background-color: #28ab81;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 0.2rem;
+  font-size: 0.9rem;
+  padding: 0.6rem 0;
+  text-align: center;
+}
+.change-info .change-submit:focus {
+  outline-width: 0;
+  background-color: #52c9a3;
+}
+.change-info .find-code2 label {
+  display: inline-block;
+}
+.change-info .find-code2 .form-control {
+  display: inline-block;
+  width: auto;
 }
 /* ==========================================================================
    Helper classes

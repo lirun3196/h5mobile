@@ -48,7 +48,7 @@
     </head>
     <body>
     <div class="container">
-        <div class="content">
+        <div class="content login">
             <header>
                 <img src="img/banner-login.png" alt="banner" class="banner-login">
             </header>
@@ -63,7 +63,6 @@
                     <div class="input-group">
                         <label class="pos-rel">
                             <input class="form-control" type="password" placeholder="密码" id="password"><span class="clear-input"><i class="fa fa-times-circle"></i></span>
-                            <span class="input-group-addon left"><i class="fa fa-lock fa-fw"></i></span>
                         </label>
                     </div>
                     <button type="submit" class="btn btn-login">登录</button>
@@ -89,6 +88,9 @@
             e.src='//www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-XXXXX-X');ga('send','pageview');
+
+            clearInput('phone');
+            clearInput('password');
         </script>
     </body>
 </html>

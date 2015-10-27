@@ -12,5 +12,6 @@
          }
      }
  }
+/*
  var inputList = ['phone', 'password'];
- inputList.forEach(clearInput);
+ inputList.forEach(clearInput);*/

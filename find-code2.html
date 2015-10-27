@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title>我的优HO</title>
+    <meta name="description" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui, user-scalable=no">
+    <meta http-equiv="cleartype" content="on">
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+    <link rel="shortcut icon" sizes="196x196" href="img/touch/touch-icon-196x196.png">
+    <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script src="js/vendor/modernizr-2.7.1.min.js"></script>
+</head>
+<body>
+<div class="change-info">
+    <header>
+        <h1 class="title">找回密码
+            <a href="#" class="back-link"><i class="fa fa-angle-left"></i></a>
+        </h1>
+    </header>
+    <div class="input-group border-bottom find-code2">
+        <div class="border-bottom pos-rel">
+            <label for="new-code" class="mr10">设置新密码</label>
+            <input type="text" placeholder="6-32位字母、数字或符号" class="form-control" id="new-code"><span class="clear-input"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="pos-rel">
+            <label for="repeat-code" class="mr10">确认新密码</label>
+            <input type="text" placeholder="请重复一遍新密码" class="form-control" id="repeat-code"><span class="clear-input"><i class="fa fa-times-circle"></i></span>
+        </div>
+    </div>
+    <button class="change-submit" type="button">确认</button>
+</div>
+
+<script src="js/vendor/jquery-2.1.0.min.js"></script>
+<script src="js/helper.js"></script>
+<script src="js/main.js"></script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-XXXXX-X');ga('send','pageview');
+
+    clearInput('new-code');
+    clearInput('repeat-code');
+</script>
+</body>
+</html>
