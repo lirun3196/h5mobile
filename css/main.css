@@ -20,12 +20,15 @@
 .clearfix:before,
 .clearfix:after,
 .info-center .info-list a:before,
-.info-center .info-list a:after {
+.info-center .info-list a:after,
+.info-center .order-status:before,
+.info-center .order-status:after {
   content: "";
   display: table;
 }
 .clearfix:after,
-.info-center .info-list a:after {
+.info-center .info-list a:after,
+.info-center .order-status:after {
   clear: both;
 }
 .text-ellipsis,
@@ -99,7 +102,7 @@ a {
 .list-group-item {
   position: relative;
   display: block;
-  padding: 0.5rem 0.75rem;
+  padding: 0.75rem;
   margin-bottom: -1px;
   background-color: #ffffff;
   border: 1px solid #e5e5e5;
@@ -189,6 +192,9 @@ a {
   max-width: 11rem;
 }
 /*个人中心*/
+.info-center {
+  margin-bottom: 1.5rem;
+}
 .info-center .info-list {
   background-color: #fff;
 }
@@ -209,6 +215,7 @@ a {
   text-align: right;
 }
 .info-center .fa {
+  margin: 0 0.5rem;
   font-size: 1.5rem;
 }
 .info-center .fa-shopping-cart {
@@ -225,6 +232,27 @@ a {
 }
 .info-center .fa-sign-out {
   color: #808080    ;
+}
+.info-center .order-status {
+  margin: 0.5rem 0;
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  color: #555;
+}
+.info-center .order-status a {
+  display: block;
+  float: left;
+  width: 25%;
+  text-align: center;
+  padding: 1rem 0;
+}
+.info-center .order-status a:focus {
+  background-color: #52c9a3;
+}
+.info-center .order-status .order-status-name {
+  display: block;
+  margin: 0.5rem 0 0;
 }
 /* ==========================================================================
    Helper classes

@@ -86,6 +86,7 @@ textarea {
 @danger-color: #c9302c;
 @img: "../img";
 @border-radius:0.2rem;
+@border: 1px solid #e5e5e5;
 .primary-color{
     color: @primary-color;
 }
@@ -101,7 +102,7 @@ a{
 .list-group-item {
     position: relative;
     display: block;
-    padding: 0.5rem 0.75rem;
+    padding: 0.75rem;
     margin-bottom: -1px;
     background-color: #ffffff;
     border: 1px solid #e5e5e5;
@@ -199,6 +200,7 @@ a{
 
 /*个人中心*/
 .info-center{
+    margin-bottom: 1.5rem;
     .info-list{
         background-color: #fff;
         a{
@@ -206,7 +208,7 @@ a{
             &:extend(.clearfix all);
         }
         li+li{
-            border-top: 1px solid #e5e5e5;
+            border-top: @border;
         }
     }
     .info-title,
@@ -220,12 +222,38 @@ a{
         text-align: right;
         &:extend(.text-ellipsis);
     }
-    .fa{ font-size: 1.5rem; }
+    .fa{
+        margin: 0 0.5rem;
+        font-size: 1.5rem;
+    }
     .fa-shopping-cart{ color: #00b3da; }
     .fa-map-marker{ color: #3cc1a9; }
     .fa-credit-card{ color: #eca700; }
     .fa-phone-square{ color: #ff861a; }
     .fa-sign-out{ color: #808080    ; }
+
+    .order-status{
+        margin: 0.5rem 0;
+        background-color: #fff;
+        border-top: @border;
+        border-bottom: @border;
+        color: #555;
+        &:extend(.clearfix all);
+        a{
+            display: block;
+            float: left;
+            width: 25%;
+            text-align: center;
+            padding: 1rem 0;
+            &:focus{
+                background-color: @primary-color-focus;
+            }
+        }
+        .order-status-name{
+            display: block;
+            margin: 0.5rem 0 0;
+        }
+    }
 }
 
 
