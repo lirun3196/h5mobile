@@ -2,7 +2,7 @@
 <html class="no-js">
 <head>
     <meta charset="utf-8">
-    <title>我的优HO</title>
+    <title>我的资料</title>
     <meta name="description" content="">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -24,21 +24,15 @@
 <body>
 <div class="change-info">
     <header>
-        <h1 class="title">找回密码
+        <h1 class="title">修改性别
             <a href="#" class="back-link"><i class="fa fa-angle-left"></i></a>
         </h1>
     </header>
-    <div class="input-group border-bottom find-code2">
-        <div class="border-bottom pos-rel">
-            <label for="new-code" class="mr10">设置新密码</label>
-            <input type="password" placeholder="6-32位字母、数字或符号" class="form-control" id="new-code"><span class="clear-input"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="pos-rel">
-            <label for="repeat-code" class="mr10">确认新密码</label>
-            <input type="password" placeholder="请重复一遍新密码" class="form-control" id="repeat-code"><span class="clear-input"><i class="fa fa-times-circle"></i></span>
-        </div>
+    <div>
+        <p class="gender" id="male">男 <i class="fa fa-check-circle"></i></p>
+        <p class="gender" id="female">女 <i class="fa fa-check-circle"></i></p>
     </div>
-    <button class="change-submit" type="button">确认</button>
+    <button class="change-submit" type="button">确认修改</button>
 </div>
 
 <script src="js/vendor/jquery-2.1.0.min.js"></script>
@@ -54,8 +48,18 @@
         r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
     ga('create','UA-XXXXX-X');ga('send','pageview');
 
-    clearInput('new-code');
-    clearInput('repeat-code');
+    (function(){
+        var male = document.getElementById('male');
+        var female = document.getElementById('female');
+        male.onclick = function(){
+            this.children[0].style.visibility = 'visible';
+            female.children[0].style.visibility = 'hidden';
+        };
+        female.onclick = function(){
+            this.children[0].style.visibility = 'visible';
+            male.children[0].style.visibility = 'hidden';
+        };
+    }());
 </script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html class="no-js">
 <head>
     <meta charset="utf-8">
-    <title>我的优HO</title>
+    <title>注册</title>
     <meta name="description" content="">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -24,21 +24,43 @@
 <body>
 <div class="change-info">
     <header>
-        <h1 class="title">找回密码
+        <h1 class="title">注册
             <a href="#" class="back-link"><i class="fa fa-angle-left"></i></a>
         </h1>
     </header>
-    <div class="input-group border-bottom find-code2">
-        <div class="border-bottom pos-rel">
-            <label for="new-code" class="mr10">设置新密码</label>
-            <input type="password" placeholder="6-32位字母、数字或符号" class="form-control" id="new-code"><span class="clear-input"><i class="fa fa-times-circle"></i></span>
+    <div class="register-step">
+        <div class="reg-step1 yes">
+            <i class="fa fa-dot-circle-o"></i>
+            <p>输入手机号码</p>
         </div>
-        <div class="pos-rel">
-            <label for="repeat-code" class="mr10">确认新密码</label>
-            <input type="password" placeholder="请重复一遍新密码" class="form-control" id="repeat-code"><span class="clear-input"><i class="fa fa-times-circle"></i></span>
+        <div class="reg-step2 no">
+            <span class="line"></span>
+            <i class="fa fa-dot-circle-o"></i>
+            <p>设置信息</p>
+        </div>
+        <div class="reg-step3 no">
+            <span class="line"></span>
+            <i class="fa fa-dot-circle-o"></i>
+            <p>注册成功</p>
         </div>
     </div>
-    <button class="change-submit" type="button">确认</button>
+    <div class="input-group border-bottom">
+        <div class="pos-rel">
+            <input type="text" placeholder="请输入手机号" class="form-control border-bottom" id="mobile"><span class="clear-input"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="pos-rel">
+            <input type="text" placeholder="请输入短信验证码" class="form-control" id="find-code">
+            <button class="get-code" type="button">获取验证码</button>
+        </div>
+    </div>
+    <div class="action-section">
+        <p id="error-tip" class="error-tips"></p>
+        <button class="change-submit" type="button">下一步</button>
+        <p class="contract-wrap">
+            <i class="fa fa-check-square" id="agree"></i>我已经阅读并接受
+            <a href="#" class="contract-link">《智生优活用户协议》</a>
+        </p>
+    </div>
 </div>
 
 <script src="js/vendor/jquery-2.1.0.min.js"></script>
@@ -54,8 +76,18 @@
         r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
     ga('create','UA-XXXXX-X');ga('send','pageview');
 
-    clearInput('new-code');
-    clearInput('repeat-code');
+    clearInput('mobile');
+    (function(){
+        var agree = document.getElementById('agree');
+        agree.onclick = function(){
+            var checked = agree.className.indexOf( 'fa-check-square' ) >= 0 ? 1 : 0;
+            if( checked ){
+                this.className = 'fa fa-square-o';
+            }else{
+                this.className = 'fa fa-check-square';
+            }
+        }
+    }());
 </script>
 </body>
 </html>

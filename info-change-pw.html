@@ -24,13 +24,17 @@
 <body>
 <div class="change-info">
     <header>
-        <h1 class="title">找回密码
+        <h1 class="title">修改密码
             <a href="#" class="back-link"><i class="fa fa-angle-left"></i></a>
         </h1>
     </header>
     <div class="input-group border-bottom find-code2">
         <div class="border-bottom pos-rel">
-            <label for="new-code" class="mr10">设置新密码</label>
+            <label for="former-code" class="mr10">旧密码 <i class="invisible">占占</i></label>
+            <input type="password" placeholder="请输入旧密码" class="form-control" id="former-code"><span class="clear-input"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="border-bottom pos-rel">
+            <label for="new-code" class="mr10">新密码 <i class="invisible">占占</i></label>
             <input type="password" placeholder="6-32位字母、数字或符号" class="form-control" id="new-code"><span class="clear-input"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="pos-rel">
@@ -38,7 +42,7 @@
             <input type="password" placeholder="请重复一遍新密码" class="form-control" id="repeat-code"><span class="clear-input"><i class="fa fa-times-circle"></i></span>
         </div>
     </div>
-    <button class="change-submit" type="button">确认</button>
+    <button class="change-submit" type="button">确认修改</button>
 </div>
 
 <script src="js/vendor/jquery-2.1.0.min.js"></script>
@@ -54,6 +58,7 @@
         r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
     ga('create','UA-XXXXX-X');ga('send','pageview');
 
+    clearInput('former-code');
     clearInput('new-code');
     clearInput('repeat-code');
 </script>

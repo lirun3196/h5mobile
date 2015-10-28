@@ -11,5 +11,5 @@
 
 # TECHNOLOGY COLOPHON
 
-    HTML5, CSS3
-    jQuery, Modernizr
+    mobile boilerplate
+    Homepage: http://html5boilerplate.com/mobile/

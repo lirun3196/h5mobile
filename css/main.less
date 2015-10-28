@@ -48,12 +48,14 @@ body {
     font-family: "Helvetica Neue", Helvetica, "microsoft yahei", sans-serif;
     font-size: 0.7rem;
     background-color: @bg-color;
+    min-width: 16rem;
 }
 .mt10{ margin-top: 0.5rem; }
 .mt20{ margin-top: 1rem; }
 .mb15{ margin-bottom: 0.75rem; }
 .ml10{ margin-left: 0.5rem; }
 .mr10{ margin-right: 0.5rem; }
+.mr20{ margin-right: 1rem; }
 
 .pr10{ padding-right: 0.5rem; }
 .pr20{ padding-right: 1rem; }
@@ -95,6 +97,10 @@ textarea {
 @border-radius:0.2rem;
 @border: 1px solid #e5e5e5;
 @border-trans: 1px solid transparent;
+
+//个人中心--修改
+@padding-tb: 0.6rem;
+@padding-lr: 1rem;
 .primary-color{
     color: @primary-color;
 }
@@ -356,8 +362,9 @@ a{
         padding: 0 1rem;
     }
     .form-control{
-        padding: 0.6rem 0;
+        padding: @padding-tb 0;
         border: none;
+        border-radius: 0;
     }
     .border-bottom{ border-bottom: @border; }
     .get-code{
@@ -380,20 +387,108 @@ a{
         border: @border-trans;
         border-radius: @border-radius;
         font-size: 0.9rem;
-        padding: 0.6rem 0;
+        padding: @padding-tb 0;
         text-align: center;
         &:focus{
             outline-width: 0;
             background-color: @primary-color-focus;
         }
     }
-    .find-code2{
+    .action-section{
+        width: 80%;
+        margin: 0 auto;
+        .contract-wrap{
+            font-size: 0.6rem;
+            margin-top: 0.5rem;
+        }
+        .change-submit{
+            width: 100%;
+        }
+        .fa{
+            width: 0.6rem;
+            font-size: 0.7rem;
+            margin-right: 0.25rem;
+            color: @primary-color-dark;
+        }
+    }
+    .find-code2, .reg-step-2{
         label{
             display: inline-block;
         }
         .form-control{
             display: inline-block;
             width: auto;
+        }
+    }
+    .gender{
+        position: relative;
+        padding: @padding-tb @padding-lr;
+        background-color: #fff;
+        line-height: 1rem;
+        .fa{
+            color: @primary-color-dark;
+            font-size: 1rem;
+            vertical-align: bottom;
+            position: absolute;
+            right: 1rem;
+        }
+    }
+    .gender+.gender{
+        border-top: @border;
+        border-bottom: @border;
+    }
+    .contract-link{
+        color: #75aafb;
+    }
+    .error-tips{
+        visibility: hidden;
+        color: #75aafb;
+        &.show{
+            margin: 0.5rem 0 -0.5rem;
+            visibility: visible;
+        }
+    }
+
+    //注册
+    .register-step{
+        padding: @padding-tb @padding-lr;
+        margin-bottom: 0.5rem;
+        background-color: #fff;
+        &:extend(.clearfix all);
+        .fa{
+            display: block;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 2;
+            &:before{ background-color: #fff; }
+        }
+    }
+    .reg-step1,
+    .reg-step2,
+    .reg-step3{
+        position: relative;
+        float: left;
+        width: 33.33%;
+        text-align: center;
+        &.no{
+            color: #c1c1c1;
+        }
+        &.yes{
+            color: @primary-color;
+        }
+    }
+    .line{
+        position: absolute;
+        display: block;
+        border: 1px solid;
+        width: 100%;
+        top: 0.4rem;
+        left: -50%;
+    }
+    .choice-gender{
+        .fa{
+            margin-right: 0.1rem;
+            color: @primary-color;
         }
     }
 }
