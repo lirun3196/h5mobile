@@ -19,6 +19,8 @@
  */
 .clearfix:before,
 .clearfix:after,
+.register-modal .modal-footer:before,
+.register-modal .modal-footer:after,
 .info-center .info-list a:before,
 .info-center .info-list a:after,
 .info-center .list-group-item:before,
@@ -31,6 +33,7 @@
   display: table;
 }
 .clearfix:after,
+.register-modal .modal-footer:after,
 .info-center .info-list a:after,
 .info-center .list-group-item:after,
 .info-center .order-status:after,
@@ -179,6 +182,88 @@ a {
   font-size: 0.9rem;
   color: inherit;
 }
+.btn,
+.action-primary,
+.action-default,
+.btn-login,
+.change-info .change-submit {
+  border: 1px solid transparent;
+  border-radius: 0.2rem;
+  padding: 0.6rem 0;
+  text-align: center;
+  color: #fff;
+}
+.btn:focus,
+.action-primary:focus,
+.action-default:focus {
+  outline-width: 0;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 22;
+  display: none;
+  overflow: hidden;
+  webkit-overflow-scrolling: touch;
+  outline-width: 0;
+  background-color: rgba(152, 152, 152, 0.6);
+}
+.modal-content {
+  width: 80%;
+  margin: 50% auto 0;
+  box-shadow: 0 0.1rem 0.25rem rgba(0, 0, 0, 0.5);
+  border-radius: 0.2rem;
+  outline-width: 0;
+  background-color: #fff;
+}
+.modal-header {
+  position: relative;
+  padding: 0.6rem 0;
+  background-color: #37b18a;
+  color: #fff;
+  text-align: center;
+  border-bottom: 1px solid rgba(141, 140, 140, 0.2);
+}
+.modal-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: normal;
+}
+.modal-footer {
+  padding: 0.6rem 0;
+}
+.modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 2rem;
+  color: #70ceb0;
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+.modal-close:focus {
+  outline-width: 0;
+}
+.register-modal .modal-footer {
+  margin-top: 1.5rem;
+}
+.register-modal .action-primary,
+.register-modal .action-default {
+  float: left;
+  display: block;
+  color: #fff;
+  width: 40%;
+  margin: 0 5%;
+}
+.register-modal .action-primary {
+  background-color: #37b18a;
+}
+.register-modal .action-default {
+  background-color: #b7b7b7;
+}
 .container {
   width: 100%;
   padding: 0 10%;
@@ -197,13 +282,8 @@ a {
 .btn-login {
   width: 100%;
   margin-top: 1.5rem;
-  padding: 0.6rem 0;
   font-size: 0.8rem;
-  text-align: center;
   background-color: #37b18a;
-  color: #fff;
-  border: 1px solid transparent;
-  border-radius: 0.2rem;
 }
 .btn-login:hover,
 .btn-login:focus {
@@ -388,12 +468,7 @@ a {
   width: 70%;
   margin: 1.5rem auto 0;
   background-color: #28ab81;
-  color: #fff;
-  border: 1px solid transparent;
-  border-radius: 0.2rem;
   font-size: 0.9rem;
-  padding: 0.6rem 0;
-  text-align: center;
 }
 .change-info .change-submit:focus {
   outline-width: 0;

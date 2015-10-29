@@ -175,7 +175,91 @@ a{
         color: inherit;
     }
 }
+.btn{
+    border: @border-trans;
+    border-radius: @border-radius;
+    padding: @padding-tb 0;
+    text-align: center;
+    color: #fff;
+    &:focus{
+        outline-width: 0;
+    }
+}
 
+//模态框--modal
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 22;
+    display: none;
+    overflow: hidden;
+    webkit-overflow-scrolling: touch;
+    outline-width: 0;
+    background-color: rgba(152, 152, 152, 0.6);
+}
+.modal-content{
+    width: 80%;
+    margin: 50% auto 0;
+    box-shadow: 0 0.1rem 0.25rem rgba(0,0,0,.5);
+    border-radius: @border-radius;
+    outline-width: 0;
+    background-color: #fff;
+}
+.modal-header{
+    position: relative;
+    padding: @padding-tb 0;
+    background-color: @primary-color;
+    color: #fff;
+    text-align: center;
+    border-bottom: 1px solid rgba(141, 140, 140, 0.2);
+}
+.modal-title{
+    margin: 0;
+    font-size: 1rem;
+    font-weight: normal;
+}
+.modal-footer{
+    padding: @padding-tb 0;
+}
+.modal-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 2rem;
+    color: #70ceb0;
+    background-color: transparent;
+    border: 1px solid transparent;
+    &:focus{
+        outline-width: 0;
+    }
+}
+.action-primary,
+.action-default{
+    &:extend(.btn all);
+}
+.register-modal{
+    .modal-footer{
+        margin-top: 1.5rem;
+        &:extend(.clearfix all);
+    }
+    .action-primary,
+    .action-default{
+        float: left;
+        display: block;
+        color: #fff;
+        width: 40%;
+        margin: 0 5%;
+    }
+    .action-primary{
+        background-color: @primary-color;
+    }
+    .action-default{
+        background-color: #b7b7b7;
+    }
+}
 //业务
 .container{
 //    height: 100%;
@@ -197,15 +281,11 @@ a{
 
 }
 .btn-login{
+    &:extend(.btn);
     width: 100%;
     margin-top: 1.5rem;
-    padding: 0.6rem 0;
     font-size: 0.8rem;
-    text-align: center;
     background-color: @primary-color;
-    color: #fff;
-    border: 1px solid transparent;
-    border-radius: @border-radius;
     &:hover,&:focus{
         background-color: @primary-color-focus;
         outline-width: 0;
@@ -379,16 +459,12 @@ a{
         border-radius: @border-radius;
     }
     .change-submit{
+        &:extend(.btn);
         display: block;
         width: 70%;
         margin: 1.5rem auto 0;
         background-color: @primary-color-dark;
-        color: #fff;
-        border: @border-trans;
-        border-radius: @border-radius;
         font-size: 0.9rem;
-        padding: @padding-tb 0;
-        text-align: center;
         &:focus{
             outline-width: 0;
             background-color: @primary-color-focus;
