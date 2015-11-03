@@ -19,8 +19,8 @@
  */
 .clearfix:before,
 .clearfix:after,
-.register-modal .modal-footer:before,
-.register-modal .modal-footer:after,
+.default-modal .modal-footer:before,
+.default-modal .modal-footer:after,
 .info-center .info-list a:before,
 .info-center .info-list a:after,
 .info-center .list-group-item:before,
@@ -28,16 +28,19 @@
 .info-center .order-status:before,
 .info-center .order-status:after,
 .change-info .register-step:before,
-.change-info .register-step:after {
+.change-info .register-step:after,
+.address .add-action:before,
+.address .add-action:after {
   content: "";
   display: table;
 }
 .clearfix:after,
-.register-modal .modal-footer:after,
+.default-modal .modal-footer:after,
 .info-center .info-list a:after,
 .info-center .list-group-item:after,
 .info-center .order-status:after,
-.change-info .register-step:after {
+.change-info .register-step:after,
+.address .add-action:after {
   clear: both;
 }
 .text-ellipsis,
@@ -79,6 +82,9 @@ body {
 }
 .mr20 {
   margin-right: 1rem;
+}
+.ptb {
+  padding: 0.6rem 0;
 }
 .pr10 {
   padding-right: 0.5rem;
@@ -125,6 +131,21 @@ a {
 .pos-rel {
   position: relative;
 }
+.pos-fb {
+  display: block;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 21;
+  background-color: #37b18a;
+  color: #fff;
+  padding: 0.6rem 0;
+  text-align: center;
+  font-size: 0.8rem;
+  line-height: 1rem;
+}
 .list-group-item {
   position: relative;
   display: block;
@@ -168,7 +189,7 @@ a {
 }
 .clear-input {
   z-index: 10;
-  display: none;
+  display: inline-block;
   position: absolute;
   top: 50%;
   margin-top: -0.45rem;
@@ -197,6 +218,10 @@ a {
 .action-primary:focus,
 .action-default:focus {
   outline-width: 0;
+}
+.tip {
+  color: #6ba5fe;
+  padding-left: 1rem;
 }
 .modal {
   position: fixed;
@@ -232,10 +257,14 @@ a {
   font-size: 1rem;
   font-weight: normal;
 }
+.modal-body {
+  padding-top: 1rem;
+  text-align: center;
+}
 .modal-footer {
   padding: 0.6rem 0;
 }
-.modal-close {
+.mc-icon {
   position: absolute;
   top: 0;
   right: 0;
@@ -244,24 +273,24 @@ a {
   background-color: transparent;
   border: 1px solid transparent;
 }
-.modal-close:focus {
+.mc-icon:focus {
   outline-width: 0;
 }
-.register-modal .modal-footer {
-  margin-top: 1.5rem;
+.default-modal .modal-footer {
+  margin-top: 1rem;
 }
-.register-modal .action-primary,
-.register-modal .action-default {
+.default-modal .action-primary,
+.default-modal .action-default {
   float: left;
   display: block;
   color: #fff;
   width: 40%;
   margin: 0 5%;
 }
-.register-modal .action-primary {
+.default-modal .action-primary {
   background-color: #37b18a;
 }
-.register-modal .action-default {
+.default-modal .action-default {
   background-color: #b7b7b7;
 }
 .container {
@@ -571,6 +600,48 @@ a {
 .change-info .choice-gender .fa {
   margin-right: 0.1rem;
   color: #37b18a;
+}
+.address {
+  background-color: #fff;
+}
+.address .add-wrap {
+  padding: 0.6rem 1rem;
+}
+.address .add-action {
+  padding: 0.6rem 1rem;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  color: #999;
+}
+.address .name,
+.address .set-default {
+  float: left;
+}
+.address .set-default.yes {
+  color: #37b18a;
+}
+.address .number,
+.address .edit,
+.address .delete {
+  float: right;
+}
+.address .delete {
+  margin-left: 1.5rem;
+}
+.address .location {
+  margin-top: 0.4rem;
+  color: #999;
+  text-align: justify;
+  line-height: 1.4;
+}
+.address .fa {
+  margin-right: 0.15rem;
+}
+.address + .address {
+  margin-top: 0.5rem;
+}
+.address:last-of-type {
+  margin-bottom: 2.5rem;
 }
 /* ==========================================================================
    Helper classes

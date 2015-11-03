@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title>我的资料</title>
+    <meta name="description" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui, user-scalable=no">
+    <meta http-equiv="cleartype" content="on">
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+    <link rel="shortcut icon" sizes="196x196" href="img/touch/touch-icon-196x196.png">
+    <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+
+
+    <link rel="stylesheet" href="css/main.css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">-->
+    <script src="js/vendor/modernizr-2.7.1.min.js"></script>
+</head>
+<body>
+<div class="change-info">
+    <header>
+        <h1 class="title">收获地址管理
+            <a href="#" class="back-link"><i class="fa fa-angle-left"></i></a>
+        </h1>
+    </header>
+    <div class="address">
+        <div class="add-wrap">
+            <p class="clearfix">
+                <span class="name">张三李四</span>
+                <span class="number">17712345678</span>
+            </p>
+            <p class="location">重庆市南岸区溯源阁4幢17-2</p>
+        </div>
+        <div class="add-action">
+            <a class="set-default" href="javascript:"><i class="fa fa-circle-o"></i>默认地址</a>
+            <a class="delete" href="javascript:"><i class="fa fa-trash-o"></i>删除</a>
+            <a class="edit" href="modify-address.html"><i class="fa fa-edit"></i>编辑</a>
+        </div>
+    </div>
+
+    <div class="address">
+        <div class="add-wrap">
+            <p class="clearfix">
+                <span class="name">张三李四</span>
+                <span class="number">17712345678</span>
+            </p>
+            <p class="location">重庆市南岸区溯源阁4幢17-2</p>
+        </div>
+        <div class="add-action">
+            <a class="set-default" href="javascript:"><i class="fa fa-circle-o"></i>默认地址</a>
+            <a class="delete" href="javascript:"><i class="fa fa-trash-o"></i>删除</a>
+            <a class="edit" href="modify-address.html"><i class="fa fa-edit"></i>编辑</a>
+        </div>
+    </div>
+    <a class="pos-fb" href="#">+新建地址</a>
+</div>
+<div class="modal default-modal" id="address-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="mc-icon modal-close" data-dismiss="modal">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title">温馨提示</h4>
+        </div>
+        <div class="modal-body">
+            <p>您确定要删除该地址吗？</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="action-default modal-close">取消</a>
+            <a href="#" class="action-primary">确定</a>
+        </div>
+    </div>
+</div>
+<script src="js/helper.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+    window.onload = function(){
+        //设置默认地址
+        var defaultAdd = document.querySelectorAll('.set-default');
+        for( var l = defaultAdd.length, i = 0; i<l; i++ ){
+            defaultAdd[i].onclick = function(evt){
+                evt.preventDefault();
+                for( var ii = 0, ll = defaultAdd.length; ii<ll; ii++ ){
+                    defaultAdd[ii].className = 'set-default';
+                    defaultAdd[ii].children[0].className = 'fa fa-circle-o';
+                }
+                this.className = 'set-default yes';
+                this.children[0].className = 'fa fa-check-circle-o';
+                /*此处进行隐藏域赋值，或者ajax赋值*/
+            }
+        }
+        //删除地址
+        var deleteAdd = document.querySelectorAll('.delete');
+        for( var delId = 0, dell = deleteAdd.length; delId < dell; delId++ ){
+            /*MBP.fastButton(deleteAdd[delId], function(evt){
+                var self = this;
+                evt.preventDefault();
+                yh.modal('address-modal',function(){
+                    this.parentNode.querySelector('.action-default').onclick();
+                    self.parentNode.parentNode.remove();
+                });
+            }, 'delete');*/
+            deleteAdd[delId].onclick = function(evt){
+                var self = this;
+                evt.preventDefault();
+                yh.modal('address-modal',function(){
+                    this.parentNode.querySelector('.action-default').onclick();
+                    self.parentNode.parentNode.remove();
+                });
+            }
+        }
+    }
+</script>
+</body>
+</html>

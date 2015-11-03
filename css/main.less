@@ -57,6 +57,9 @@ body {
 .mr10{ margin-right: 0.5rem; }
 .mr20{ margin-right: 1rem; }
 
+.ptb{
+    padding: @padding-tb 0;
+}
 .pr10{ padding-right: 0.5rem; }
 .pr20{ padding-right: 1rem; }
 /*
@@ -93,6 +96,7 @@ textarea {
 @primary-color-focus:  lighten(@primary-color, 10%);
 @bg-color: #f4f4f4;
 @danger-color: #c9302c;
+@tip-color: #6ba5fe;
 @img: "../img";
 @border-radius:0.2rem;
 @border: 1px solid #e5e5e5;
@@ -111,6 +115,21 @@ a{
     text-decoration: none;
 }
 .pos-rel{ position: relative; }
+.pos-fb{
+    display: block;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 21;
+    background-color: @primary-color;
+    color: #fff;
+    padding: @padding-tb 0;
+    text-align: center;
+    font-size: 0.8rem;
+    line-height: 1rem;
+}
 
 //组件
 .list-group-item {
@@ -161,7 +180,7 @@ a{
 }
 .clear-input{
     z-index: 10;
-    display: none;
+    display: inline-block;
     position: absolute;
     top: 50%;
     margin-top: -0.45rem;
@@ -184,6 +203,10 @@ a{
     &:focus{
         outline-width: 0;
     }
+}
+.tip{
+    color: @tip-color;
+    padding-left: @padding-lr;
 }
 
 //模态框--modal
@@ -221,10 +244,14 @@ a{
     font-size: 1rem;
     font-weight: normal;
 }
+.modal-body{
+    padding-top: 1rem;
+    text-align: center;
+}
 .modal-footer{
     padding: @padding-tb 0;
 }
-.modal-close{
+.mc-icon{
     position: absolute;
     top: 0;
     right: 0;
@@ -240,9 +267,9 @@ a{
 .action-default{
     &:extend(.btn all);
 }
-.register-modal{
+.default-modal{
     .modal-footer{
-        margin-top: 1.5rem;
+        margin-top: 1rem;
         &:extend(.clearfix all);
     }
     .action-primary,
@@ -452,7 +479,7 @@ a{
         top: 50%;
         right: 0;
         margin-top: -0.7rem;
-        background-color: #6ba5fe;
+        background-color: @tip-color;
         color: #fff;
         border: @border-trans;
         padding: 0.3rem 0.4rem;
@@ -567,6 +594,45 @@ a{
             color: @primary-color;
         }
     }
+}
+.address{
+    background-color: #fff;
+    .add-wrap{
+        padding: @padding-tb @padding-lr;
+    }
+    .add-action{
+        padding: @padding-tb @padding-lr;
+        border-top: @border;
+        border-bottom: @border;
+        color: #999;
+        &:extend(.clearfix all);
+    }
+    .name,
+    .set-default{
+        float: left;
+    }
+    .set-default.yes{
+        color: @primary-color;
+    }
+    .number,
+    .edit,
+    .delete{
+        float: right;
+    }
+    .delete{
+        margin-left: 1.5rem;
+    }
+    .location{
+        margin-top: 0.4rem;
+        color: #999;
+        text-align: justify;
+        line-height: 1.4;
+    }
+    .fa{
+        margin-right: 0.15rem;
+    }
+    &+&{ margin-top: 0.5rem; }
+    &:last-of-type{ margin-bottom: 2.5rem; }
 }
 
 

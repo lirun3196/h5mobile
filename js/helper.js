@@ -107,6 +107,8 @@
                 this.addClickEvent(element[singleElIdx]);
             }
         } else {
+            console.log(element);
+            console.log(this);
             this.addClickEvent(element);
         }
     };
