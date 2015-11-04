@@ -44,11 +44,9 @@ function clearInput( id ){
             clearBtn.appendChild(clearIcon);
 
             inputEle.onkeyup = function(evt){
-                if( evt.keyCode ===8 ){
-                    var trimValue = document.getElementById( id).value.trim();
-                    if( trimValue.length !== 0 ){
-                        inputEle.parentNode.appendChild(clearBtn);
-                    }
+                var trimValue = document.getElementById( id).value.trim();
+                if( evt.keyCode ===8 && trimValue.length !== 0 ){
+                    inputEle.parentNode.appendChild(clearBtn);
                 }
             };
             clearBtn.onclick = function(){
