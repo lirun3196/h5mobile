@@ -18,7 +18,7 @@
 
 
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="http://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="js/vendor/modernizr-2.7.1.min.js"></script>
 </head>
 <body>
@@ -31,21 +31,23 @@
     <div class="input-group border-bottom find-code2">
         <div class="border-bottom pos-rel">
             <label for="former-code" class="mr10">旧密码 <i class="invisible">占占</i></label>
-            <input type="password" placeholder="请输入旧密码" class="form-control" id="former-code"><span class="clear-input"><i class="fa fa-times-circle"></i></span>
+            <input type="password" placeholder="请输入旧密码" class="form-control" id="former-code">
         </div>
         <div class="border-bottom pos-rel">
             <label for="new-code" class="mr10">新密码 <i class="invisible">占占</i></label>
-            <input type="password" placeholder="6-32位字母、数字或符号" class="form-control" id="new-code"><span class="clear-input"><i class="fa fa-times-circle"></i></span>
+            <input type="password" placeholder="6-32位字母、数字或符号" class="form-control" id="new-code">
         </div>
         <div class="pos-rel">
             <label for="repeat-code" class="mr10">确认新密码</label>
-            <input type="password" placeholder="请重复一遍新密码" class="form-control" id="repeat-code"><span class="clear-input"><i class="fa fa-times-circle"></i></span>
+            <input type="password" placeholder="请重复一遍新密码" class="form-control" id="repeat-code">
         </div>
     </div>
-    <button class="change-submit" type="button">确认修改</button>
+    <div class="action-section">
+        <p id="error-tip" class="error-tips"></p>
+        <button class="change-submit" type="button">确认修改</button>
+    </div>
 </div>
 
-<script src="js/vendor/jquery-2.1.0.min.js"></script>
 <script src="js/helper.js"></script>
 <script src="js/main.js"></script>
 

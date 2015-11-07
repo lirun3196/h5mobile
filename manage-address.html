@@ -16,9 +16,8 @@
     <link rel="shortcut icon" sizes="196x196" href="img/touch/touch-icon-196x196.png">
     <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
 
-
     <link rel="stylesheet" href="css/main.css">
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">-->
+    <link href="http://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="js/vendor/modernizr-2.7.1.min.js"></script>
 </head>
 <body>
@@ -31,14 +30,14 @@
     <div class="address">
         <div class="add-wrap">
             <p class="clearfix">
-                <span class="name">张三李四</span>
+                <span class="name">梅长苏</span>
                 <span class="number">17712345678</span>
             </p>
-            <p class="location">重庆市南岸区溯源阁4幢17-2</p>
+            <p class="location">梁国廊州</p>
         </div>
         <div class="add-action">
             <a class="set-default" href="javascript:"><i class="fa fa-circle-o"></i>默认地址</a>
-            <a class="delete" href="javascript:"><i class="fa fa-trash-o"></i>删除</a>
+            <a class="delete" href="javascript:" id="del1"><i class="fa fa-trash-o"></i>删除</a>
             <a class="edit" href="modify-address.html"><i class="fa fa-edit"></i>编辑</a>
         </div>
     </div>
@@ -46,35 +45,18 @@
     <div class="address">
         <div class="add-wrap">
             <p class="clearfix">
-                <span class="name">张三李四</span>
+                <span class="name">林殊</span>
                 <span class="number">17712345678</span>
             </p>
-            <p class="location">重庆市南岸区溯源阁4幢17-2</p>
+            <p class="location">梁国金陵</p>
         </div>
         <div class="add-action">
             <a class="set-default" href="javascript:"><i class="fa fa-circle-o"></i>默认地址</a>
-            <a class="delete" href="javascript:"><i class="fa fa-trash-o"></i>删除</a>
+            <a class="delete" href="javascript:" id="del2"><i class="fa fa-trash-o"></i>删除</a>
             <a class="edit" href="modify-address.html"><i class="fa fa-edit"></i>编辑</a>
         </div>
     </div>
     <a class="pos-fb" href="#">+新建地址</a>
-</div>
-<div class="modal default-modal" id="address-modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="mc-icon modal-close" data-dismiss="modal">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <h4 class="modal-title">温馨提示</h4>
-        </div>
-        <div class="modal-body">
-            <p>您确定要删除该地址吗？</p>
-        </div>
-        <div class="modal-footer">
-            <a href="#" class="action-default modal-close">取消</a>
-            <a href="#" class="action-primary">确定</a>
-        </div>
-    </div>
 </div>
 <script src="js/helper.js"></script>
 <script src="js/main.js"></script>
@@ -92,28 +74,27 @@
                 }
                 this.className = 'set-default yes';
                 this.children[0].className = 'fa fa-check-circle-o';
-                /*此处进行隐藏域赋值，或者ajax赋值*/
+                /*此处进行ajax赋值,并通过'更改'事件传给后端*/
             }
         }
         //删除地址
         var deleteAdd = document.querySelectorAll('.delete');
+
         for( var delId = 0, dell = deleteAdd.length; delId < dell; delId++ ){
-            /*MBP.fastButton(deleteAdd[delId], function(evt){
+            var did = deleteAdd[delId].id;
+            var deladd = new MBP.fastButton(deleteAdd[delId], function(evt){
                 var self = this;
                 evt.preventDefault();
-                yh.modal('address-modal',function(){
+                yh.createModal({
+                    title: '温馨提示',
+                    content: '您确定要删除该地址吗？'
+                });
+                yh.controlModal('modal',function(evt){
                     this.parentNode.querySelector('.action-default').onclick();
                     self.parentNode.parentNode.remove();
+                    /*此处进行隐藏域赋值，或者ajax赋值*/
                 });
-            }, 'delete');*/
-            deleteAdd[delId].onclick = function(evt){
-                var self = this;
-                evt.preventDefault();
-                yh.modal('address-modal',function(){
-                    this.parentNode.querySelector('.action-default').onclick();
-                    self.parentNode.parentNode.remove();
-                });
-            }
+            });
         }
     }
 </script>

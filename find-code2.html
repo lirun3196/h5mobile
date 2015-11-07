@@ -18,7 +18,7 @@
 
 
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="http://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="js/vendor/modernizr-2.7.1.min.js"></script>
 </head>
 <body>
@@ -38,10 +38,12 @@
             <input type="password" placeholder="请重复一遍新密码" class="form-control" id="repeat-code">
         </div>
     </div>
-    <button class="change-submit" type="button">确认</button>
+    <div class="action-section">
+        <p id="error-tip" class="error-tips"></p>
+        <button class="change-submit" type="button">确认</button>
+    </div>
 </div>
 
-<script src="js/vendor/jquery-2.1.0.min.js"></script>
 <script src="js/helper.js"></script>
 <script src="js/main.js"></script>
 

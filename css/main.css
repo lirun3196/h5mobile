@@ -1,22 +1,42 @@
-@import "normalize.css";
-/*
- * HTML5 Boilerplate
- *
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
-/* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
+/*根据微信页面，个性化normal style*/
 * {
   box-sizing: border-box;
   line-height: 1;
 }
-/**
- * Clearfix helper
- * Used to contain floats: h5bp.com/q
- */
+html {
+  font-size: 20px;
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  /*在最新版的谷歌里,已经不在支持这个属性*/
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+html,
+button,
+input,
+select,
+textarea {
+  color: #222;
+  font-family: "Helvetica Neue", Helvetica, "microsoft yahei", sans-serif;
+}
+body {
+  font-family: "Helvetica Neue", Helvetica, "microsoft yahei", sans-serif;
+  font-size: 0.7rem;
+  background-color: #f4f4f4;
+  min-width: 16rem;
+  margin: 0;
+}
+dd {
+  margin-left: 0;
+}
+ul,
+p {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
 .clearfix:before,
 .clearfix:after,
 .default-modal .modal-footer:before,
@@ -48,22 +68,6 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-}
-html,
-button,
-input,
-select,
-textarea {
-  color: #222;
-}
-html {
-  font-size: 20px;
-}
-body {
-  font-family: "Helvetica Neue", Helvetica, "microsoft yahei", sans-serif;
-  font-size: 0.7rem;
-  background-color: #f4f4f4;
-  min-width: 16rem;
 }
 .mt10 {
   margin-top: 0.5rem;
@@ -128,6 +132,13 @@ a {
   color: inherit;
   text-decoration: none;
 }
+a:active,
+a:hover {
+  outline: 0;
+}
+a:visited {
+  color: inherit;
+}
 .pos-rel {
   position: relative;
 }
@@ -145,6 +156,9 @@ a {
   text-align: center;
   font-size: 0.8rem;
   line-height: 1rem;
+}
+.pos-fb:visited {
+  color: #fff;
 }
 .list-group-item {
   position: relative;
@@ -206,7 +220,7 @@ a {
 .btn,
 .action-primary,
 .action-default,
-.btn-login,
+.login-wrap .btn-login,
 .change-info .change-submit {
   border: 1px solid transparent;
   border-radius: 0.2rem;
@@ -222,6 +236,8 @@ a {
 .tip {
   color: #6ba5fe;
   padding-left: 1rem;
+  font-size: 0.6rem;
+  padding-top: 0.5rem;
 }
 .modal {
   position: fixed;
@@ -238,11 +254,14 @@ a {
 }
 .modal-content {
   width: 80%;
-  margin: 50% auto 0;
   box-shadow: 0 0.1rem 0.25rem rgba(0, 0, 0, 0.5);
   border-radius: 0.2rem;
   outline-width: 0;
   background-color: #fff;
+  position: fixed;
+  bottom: 25%;
+  left: 50%;
+  margin-left: -40%;
 }
 .modal-header {
   position: relative;
@@ -293,44 +312,44 @@ a {
 .default-modal .action-default {
   background-color: #b7b7b7;
 }
-.container {
+.login-wrap {
   width: 100%;
   padding: 0 10%;
 }
-.content {
+.login-wrap .content {
   max-width: 20rem;
   margin: 0 auto;
   padding: 6% 0 8%;
+}
+.login-wrap .btn-login {
+  width: 100%;
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  background-color: #37b18a;
+}
+.login-wrap .btn-login:hover,
+.login-wrap .btn-login:focus {
+  background-color: #52c9a3;
+  outline-width: 0;
+}
+.login-wrap .cant-login a {
+  display: inline-block;
+  padding: 0.6rem 0;
+}
+.login-wrap .cant-login a:focus {
+  text-decoration: underline;
+}
+.login-wrap .banner-login {
+  display: block;
+  margin: 0 auto 2.5rem;
+  width: 7.5rem;
+  max-width: 11rem;
 }
 .login .form-control {
   padding: 0.5rem 1.8rem;
 }
 .login .form-control:focus {
   border-color: #37b18a;
-}
-.btn-login {
-  width: 100%;
-  margin-top: 1.5rem;
-  font-size: 0.8rem;
-  background-color: #37b18a;
-}
-.btn-login:hover,
-.btn-login:focus {
-  background-color: #52c9a3;
-  outline-width: 0;
-}
-.cant-login a {
-  display: inline-block;
-  padding: 0.6rem 0;
-}
-.cant-login a:focus {
-  text-decoration: underline;
-}
-.banner-login {
-  display: block;
-  margin: 0 auto 2.5rem;
-  width: 7.5rem;
-  max-width: 11rem;
 }
 /*个人中心*/
 .info-center {
@@ -521,11 +540,13 @@ a {
   color: #28ab81;
 }
 .change-info .find-code2 label,
-.change-info .reg-step-2 label {
+.change-info .reg-step-2 label,
+.change-info .form-inline label {
   display: inline-block;
 }
 .change-info .find-code2 .form-control,
-.change-info .reg-step-2 .form-control {
+.change-info .reg-step-2 .form-control,
+.change-info .form-inline .form-control {
   display: inline-block;
   width: auto;
 }
@@ -572,21 +593,18 @@ a {
   background-color: #fff;
 }
 .change-info .reg-step1,
-.change-info .reg-step2,
-.change-info .reg-step3 {
+.change-info .reg-step2 {
   position: relative;
   float: left;
-  width: 33.33%;
+  width: 50%;
   text-align: center;
 }
 .change-info .reg-step1.no,
-.change-info .reg-step2.no,
-.change-info .reg-step3.no {
+.change-info .reg-step2.no {
   color: #c1c1c1;
 }
 .change-info .reg-step1.yes,
-.change-info .reg-step2.yes,
-.change-info .reg-step3.yes {
+.change-info .reg-step2.yes {
   color: #37b18a;
 }
 .change-info .line {
@@ -643,6 +661,12 @@ a {
 .address:last-of-type {
   margin-bottom: 2.5rem;
 }
+.modify-address > div {
+  position: relative;
+  border-bottom: 1px solid #e5e5e5;
+  margin: 0 -1rem;
+  padding-left: 1rem;
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -651,7 +675,7 @@ a {
   -webkit-touch-callout: none;
 }
 .pressed {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: inherit;
 }
 /* A hack for HTML5 contenteditable attribute on mobile,在ios中清楚内阴影 */
 input,
